@@ -3,19 +3,26 @@ using System.Collections;
 
 public class ParticlesBursts : MonoBehaviour {
 	ParticleSystem partsys;
-	GameObject partsysobj;
+	GameObject partsysobj, blackhole;
 
 	// Use this for initialization
 	void Start () {
 		print ("Init");
 		partsysobj = GameObject.Find ("Test Particle System");
+		blackhole = GameObject.Find ("BlackHole");
 		partsys = partsysobj.GetComponent<ParticleSystem> ();
 	}
 
-	static float speed = 10;
-	static float speedRange = 0;
-	static int nParticles = 20;
-	static Color color = Color.blue;
+	public float speed = 10;
+	public float speedRange = 0;
+	public int nParticles = 20;
+	public float particleSize = 0.5f, lifetime = 1f;
+	public Color color = Color.blue;
+
+	public float blackholeSize = 1;
+	public float blackholePull = 1;
+	public float blackholeDrag = 0.9f;
+
 
 	// Update is called once per frame
 	void Update () {
@@ -24,24 +31,45 @@ public class ParticlesBursts : MonoBehaviour {
 			//partsys.enableEmission = ! partsys.enableEmission;
 			//partsys.Emit(10);
 
-			for (int i = 0; i < nParticles; i++) {
-				Vector3 dir;
-				if(false)
-					dir = Quaternion.AngleAxis((float)Random.Range(0f, 360f), new Vector3(0,0,1)) * new Vector3(0, 1) 
-						* (Random.Range(-speedRange, speedRange) + speed);
-				else
-					dir = Quaternion.AngleAxis(i * 360.0f / nParticles, new Vector3(0,0,1)) * new Vector3(0, 1) 
-						* (Random.Range(-speedRange, speedRange) + speed);
+			Burst (partsysobj.transform.position);
 
-				//print ("Particle: " + dir);
-
-				partsys.Emit(partsysobj.transform.position, dir, 0.5, 0.5f, color);
-			}
-
-			ParticleSystem.Particle[] ps = new ParticleSystem.Particle[100];
+			//ParticleSystem.Particle[] ps = new ParticleSystem.Particle[100];
 			//print(partsys.GetParticles(ps));
 			//print (ps[0].position);
 			//print (ps[0].velocity);
+		}
+	}
+
+	void FixedUpdate() {
+		ParticleSystem.Particle[] ps = new ParticleSystem.Particle[100];
+		int nParticles = partsys.GetParticles (ps);
+		//print (ps[0].position);
+		//print (ps[0].velocity);
+		for( int i = 0; i < nParticles; i++){
+			Vector3 diff = ps[i].position - blackhole.transform.position;
+			if(diff.magnitude < blackholeSize) {
+				Vector3 f = Vector3.MoveTowards(Vector3.zero, diff, blackholePull);
+
+				ps[i].velocity += -f;
+				ps[i].velocity *= blackholeDrag;
+			}
+		}
+		partsys.SetParticles(ps, nParticles);
+	}
+
+	public void Burst(Vector3 position) {
+		for (int i = 0; i < nParticles; i++) {
+			Vector3 dir;
+			if(false)
+				dir = Quaternion.AngleAxis((float)Random.Range(0f, 360f), new Vector3(0,0,1)) * new Vector3(0, 1) 
+					* (Random.Range(-speedRange, speedRange) + speed);
+			else
+				dir = Quaternion.AngleAxis(i * 360.0f / nParticles, new Vector3(0,0,1)) * new Vector3(0, 1) 
+					* (Random.Range(-speedRange, speedRange) + speed);
+			
+			//print ("Particle: " + dir);
+			
+			partsys.Emit(position, dir, particleSize, lifetime, color);
 		}
 	}
 }

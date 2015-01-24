@@ -151,6 +151,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d541f4ce0d97e4b83d8ee4c30ff0ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
+  speedRange: 0
+  nParticles: 20
+  particleSize: .5
+  lifetime: 1
+  color: {r: 0, g: 0, b: 1, a: 1}
+  blackholeSize: 1
+  blackholePull: 1
+  blackholeDrag: .5
 --- !u!4 &243456998
 Transform:
   m_ObjectHideFlags: 0
@@ -2848,7 +2857,6 @@ GameObject:
   - 33: {fileID: 1739076629}
   - 65: {fileID: 1739076628}
   - 23: {fileID: 1739076627}
-  - 54: {fileID: 1739076626}
   m_Layer: 0
   m_Name: BlackHole
   m_TagString: Untagged
@@ -2856,28 +2864,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &1739076626
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1739076625}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!23 &1739076627
 Renderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1739076625}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -2899,7 +2892,7 @@ BoxCollider:
   m_GameObject: {fileID: 1739076625}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2917,8 +2910,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1739076625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.3500004, y: 8.09000015, z: -15.3400002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 15.3500004, y: 8.21000004, z: -15.9200001}
+  m_LocalScale: {x: 1.20409906, y: 1.03763926, z: 3.72252846}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
