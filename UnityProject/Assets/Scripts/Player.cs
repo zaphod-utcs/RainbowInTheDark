@@ -5,32 +5,47 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
 	#region Fields
+	
+	public enum Turn {
+		left = -1,
+		none = 0,
+		right = 1
+	}
+
 	public float energy = 100f;
 	public float maxEnergy = 100f;
 	public float decayRate = 5f;
 	public float regenRate = 2f;
 	public float pingForce = 10f;
 	public float pingHoldTime = 1f;
+	public float rotateSpeed = 250f;
+
 
 	private bool _pinging;	
 	private float _appliedPingForce;
 	private CharacterMotor _motor;
 	private Vector3 _initPos;
 	private Rect _rect = new Rect(10, 10, 100, 24);
+	private Turn _turn;
+	private Transform _transform;
 	#endregion
 	
 	
 	#region Unity Functions
 	void Awake() {
 		_motor = GetComponent<CharacterMotor>();
+		_transform = transform;
 	}	
 	void Start () {
 		_initPos = transform.position;
 		if (pingHoldTime == 0)
 			pingHoldTime = 1f;
+		_turn = Turn.none;
 	}	
 	void Update () {
 		_pinging = false; //wip
+		//_transform.Rotate(0,0, (int)_turn * Time.deltaTime * rotateSpeed);
+		//_transform.Rotate(_motor.Direction);
 
 		if (_motor.IsMoving) {
 			energy = Mathf.Clamp (energy - decayRate * Time.deltaTime, 0, maxEnergy);
