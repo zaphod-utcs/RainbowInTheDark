@@ -82,6 +82,7 @@ public class ParticlesBursts : MonoBehaviour {
 	}
 
 	public void Burst(BurstType type, float power, Vector3 position) {
+		//print ("Burst: " + type + ", " + power + ", " + position);
 		switch (type) {
 			//	dir = Quaternion.AngleAxis ((float)Random.Range (0f, 360f), new Vector3 (0, 0, 1)) * new Vector3 (0, 1) 
 			//      * (Random.Range (-speedRange, speedRange) + speed);

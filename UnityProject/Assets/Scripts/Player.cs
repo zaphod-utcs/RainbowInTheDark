@@ -28,11 +28,13 @@ public class Player : MonoBehaviour {
 	private Rect _rect = new Rect(10, 10, 100, 24);
 	private Turn _turn;
 	private Transform _transform;
+	private ParticlesBursts _bursts;
 	#endregion
 	
 	
 	#region Unity Functions
 	void Awake() {
+		_bursts = GetComponent<ParticlesBursts> ();
 		_motor = GetComponent<CharacterMotor>();
 		_transform = transform;
 	}	
@@ -84,7 +86,7 @@ public class Player : MonoBehaviour {
 		Debug.Log("\t_appliedPingForce: " + _appliedPingForce);
 
 		//WIP: INVOKE PARTICLE EMITTER
-		// emitter.go(); //pass in _appliedPingForce
+		_bursts.Burst (BurstType.REGULAR, _appliedPingForce, _motor.transform.position);
 		_pinging = true;
 		_appliedPingForce = 0;
 
