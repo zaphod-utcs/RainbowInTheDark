@@ -6,16 +6,20 @@ public enum BurstType {
 }
 
 public class ParticlesBursts : MonoBehaviour {
-	ParticleSystem particleSystem;
+	ParticleSystem particleSystem = null;
 	BlackHole[] blackholes;
 
 	// Use this for initialization
 	void Start () {
 		print ("Init");
 		ParticleSystem[] pss = FindObjectsOfType<ParticleSystem> ();
-		particleSystem = pss [0];
-		if (pss.Length != 1) {
-			throw new UnityException("There must be exactly one particle system");
+		foreach (ParticleSystem p in pss) {
+			if( p.tag == "MainParticleSystem" ) {
+				if (particleSystem != null) {
+					throw new UnityException("There must be exactly one particle system");
+				}
+				particleSystem = pss [0];
+			}
 		}
 
 		print ("ParticleSystem: " + particleSystem.gameObject.name);

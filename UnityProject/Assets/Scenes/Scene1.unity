@@ -472,7 +472,7 @@ GameObject:
   - 199: {fileID: 675862998}
   m_Layer: 0
   m_Name: Test Particle System
-  m_TagString: Untagged
+  m_TagString: MainParticleSystem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
