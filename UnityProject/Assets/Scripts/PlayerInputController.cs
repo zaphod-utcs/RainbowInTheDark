@@ -7,12 +7,14 @@ public class PlayerInputController : MonoBehaviour {
 	private CharacterMotor _motor;
 	private Player _player;
 	private float _pingTimer;
+	private AudioSource[] _tones;
 	#endregion
 
 	#region Unity Functions
 	void Awake() {
 		_motor = GetComponent<CharacterMotor>();
 		_player = GetComponent<Player>();
+		_tones = GetComponents<AudioSource> ();
 	}
 	void Start () {
 	}
@@ -27,6 +29,7 @@ public class PlayerInputController : MonoBehaviour {
 			if (Input.GetButtonUp("Ping")) {
 				_player.Ping(_pingTimer);
 				_pingTimer = 0;
+				_tones[Mathf.FloorToInt(_player.energy / 15)].Play();
 			}
 		}
 		else {
