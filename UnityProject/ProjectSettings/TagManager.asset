@@ -7,6 +7,7 @@ TagManager:
   - Wall
   - Destination
   - MainParticleSystem
+  - Decoy
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

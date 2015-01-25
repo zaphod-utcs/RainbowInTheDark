@@ -25,9 +25,11 @@ public class Player : MonoBehaviour {
 	public float regenRate = 2f;
 	public float pingForce = 10f;
 	public float pingHoldTime = 1f;
+
 	public float rotateSpeed = 25f;
 	public float sleepTime = 3f;
 	public float pingTime = 1f;
+	public string nextLevel = "Level 1";
 
 	private State _state;	
 	private float _appliedPingForce;
@@ -40,6 +42,7 @@ public class Player : MonoBehaviour {
 	private String _sleepMsg;
 	private bool _canRotate;
 	private Animator _anim;
+	private ParticlesBursts _bursts;
 	#endregion
 	
 	
@@ -50,6 +53,7 @@ public class Player : MonoBehaviour {
 	#endregion
 	#region Unity Functions
 	void Awake() {
+		_bursts = GetComponent<ParticlesBursts> ();
 		_motor = GetComponent<CharacterMotor>();
 		_transform = transform;
 		//_anim = GetComponentInChildren<Animation>();
@@ -98,7 +102,10 @@ public class Player : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 		if (other.transform.CompareTag("Destination")) {
 			Debug.Log ("Player::OnTriggerEnter() Dest");
-			Reset ();
+			//Reset ();
+			// WIP
+			// Do animation
+			Application.LoadLevel (nextLevel);
 		}
 	}
 	void OnGUI() {
@@ -202,15 +209,14 @@ public class Player : MonoBehaviour {
 		_appliedPingForce = elapsed/pingHoldTime;
 		Debug.Log("\t_appliedPingForce: " + _appliedPingForce);
 
-		//WIP: INVOKE PARTICLE EMITTER
-		// emitter.go(); //pass in _appliedPingForce
+		_bursts.Burst (BurstType.REGULAR, _appliedPingForce, _motor.transform.position);
+		_pinging = true;
 		_appliedPingForce = 0;
 
-		//WIP: trigger animation
 		_anim.Play("ping");
 		
 		_state = State.pinging;
-	
+		
 	}
 	void PingExtra() {
 		if (rigidbody.velocity == Vector3.zero) {
