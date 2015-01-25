@@ -44,6 +44,7 @@ GameObject:
   - 82: {fileID: 8245812}
   - 82: {fileID: 8289462}
   - 82: {fileID: 8253356}
+  - 114: {fileID: 11470240}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -691,7 +692,8 @@ MonoBehaviour:
   rotateSpeed: 25
   sleepTime: 3
   pingTime: .300000012
-  nextLevel: Level 1
+  wonTime: 3
+  nextLevel: Level 2
   decoyTriggerColor: {r: 1, g: 0, b: 0, a: 1}
   resetHoldTime: 1
 --- !u!114 &11443098
@@ -740,6 +742,19 @@ MonoBehaviour:
   maxSpeed: 5
   minSpeed: .0500000007
   drag: .0500000007
+--- !u!114 &11470240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb4e5b6a311932458bca85719fa6034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressBarEmpty: {fileID: 2800000, guid: 3592ba20e597c194790b162c782b32cb, type: 3}
+  progressBarFull: {fileID: 2800000, guid: 391de52d3b3bf924d8454d44fd3208a1, type: 3}
 --- !u!114 &11483514
 MonoBehaviour:
   m_ObjectHideFlags: 1

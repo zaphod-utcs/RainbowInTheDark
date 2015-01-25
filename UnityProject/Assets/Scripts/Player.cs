@@ -187,6 +187,7 @@ public class Player : MonoBehaviour {
 			energy = Mathf.Clamp (energy - decayRate * Time.deltaTime, 0, maxEnergy);
 			_energyBar.SetProgress(energy,maxEnergy);
 			_anim.Play ("move");
+			print ("Energy: " + energy + " / " + maxEnergy + "(" + (maxEnergy - energy) + ")");
 		}
 		else {
 
