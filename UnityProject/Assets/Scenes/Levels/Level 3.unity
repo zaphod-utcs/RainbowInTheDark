@@ -219,6 +219,7 @@ MonoBehaviour:
   pingForce: 10
   pingHoldTime: 1
   rotateSpeed: 250
+  nextLevel: Level 4
 --- !u!114 &24096882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,9 +233,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxParticles: 100
-  speed: 10
+  speed: 7
   speedRange: 0
-  nParticles: 20
+  nParticles: 40
   particleSize: .5
   lifetime: 1
   color: {r: 0, g: 0, b: 1, a: 1}
@@ -349,7 +350,7 @@ GameObject:
   - 114: {fileID: 223015615}
   m_Layer: 10
   m_Name: Decoy
-  m_TagString: Destination
+  m_TagString: Decoy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1879,6 +1880,10 @@ Prefab:
       propertyPath: m_Name
       value: Decoy
       objectReference: {fileID: 0}
+    - target: {fileID: 150610, guid: e100ca66f9babf444903694df5ee4b4a, type: 2}
+      propertyPath: m_TagString
+      value: Decoy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e100ca66f9babf444903694df5ee4b4a, type: 2}
   m_RootGameObject: {fileID: 223015613}
@@ -1966,6 +1971,14 @@ Prefab:
     - target: {fileID: 435740, guid: 37ea2cbd2cc59e541afb144de58e5a17, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6535740, guid: 37ea2cbd2cc59e541afb144de58e5a17, type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435736, guid: 37ea2cbd2cc59e541afb144de58e5a17, type: 2}
+      propertyPath: nextLevel
+      value: Level 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 37ea2cbd2cc59e541afb144de58e5a17, type: 2}

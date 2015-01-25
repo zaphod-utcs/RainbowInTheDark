@@ -6,7 +6,8 @@ public class HideWallsAndDest : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	    HideTag("Wall");
-            HideTag("Destination");
+		HideTag("Destination");
+		HideTag("Decoy");
 	}
 
         private void HideTag(string tag) {
