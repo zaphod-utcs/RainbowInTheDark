@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 418744}
   - 198: {fileID: 19818744}
   - 199: {fileID: 19918744}
+  - 114: {fileID: 11491700}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: MainParticleSystem
@@ -29,6 +30,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11491700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba86df80c846f8b48bb670fa12c4e5f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 8260122, guid: 2a8185c4f7fe1e64480d57ed9add0100, type: 2}
 --- !u!198 &19818744
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -41,7 +54,7 @@ ParticleSystem:
   randomSeed: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   moveWithTransform: 0
   InitialModule:
     enabled: 1
@@ -1072,7 +1085,7 @@ ParticleSystem:
       m_Bits: 512
     quality: 0
     voxelSize: .5
-    collisionMessages: 0
+    collisionMessages: 1
   SubModule:
     enabled: 0
     subEmitterBirth: {fileID: 0}
@@ -1093,7 +1106,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7e3669cf306c78f48a1f9affe08eb0f9, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
