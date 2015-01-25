@@ -278,6 +278,7 @@ MonoBehaviour:
   sleepTime: 3
   pingTime: 1
   nextLevel: Level 3
+  decoyTriggerColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &305100890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +445,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2375038, guid: 7f5cfe7ad50f8eb4cb2272b125f42b39, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 255aef331b6bc5d4d8261f3e66992d67, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f5cfe7ad50f8eb4cb2272b125f42b39, type: 2}
   m_RootGameObject: {fileID: 1529316417}
@@ -1997,7 +2002,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: fd03f6da8dd4ee943be579b10d70fce0, type: 2}
+  - {fileID: 2100000, guid: 255aef331b6bc5d4d8261f3e66992d67, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

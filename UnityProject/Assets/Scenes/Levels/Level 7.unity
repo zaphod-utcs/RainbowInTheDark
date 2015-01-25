@@ -204,7 +204,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 458078, guid: 1a327d511937c1543ad620dfa93ad917, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 458078, guid: 1a327d511937c1543ad620dfa93ad917, type: 2}
       propertyPath: m_LocalScale.y
@@ -903,6 +903,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2375038, guid: 7f5cfe7ad50f8eb4cb2272b125f42b39, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b07285df325e70745bc5ebe3b215d557, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f5cfe7ad50f8eb4cb2272b125f42b39, type: 2}
   m_RootGameObject: {fileID: 1529316417}
@@ -945,7 +949,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 458078, guid: 1a327d511937c1543ad620dfa93ad917, type: 2}
       propertyPath: m_RootOrder
-      value: 19
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 458078, guid: 1a327d511937c1543ad620dfa93ad917, type: 2}
       propertyPath: m_LocalScale.y
@@ -2424,7 +2428,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450610, guid: e100ca66f9babf444903694df5ee4b4a, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 150610, guid: e100ca66f9babf444903694df5ee4b4a, type: 2}
       propertyPath: m_Layer
@@ -2480,7 +2484,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 458078, guid: 1a327d511937c1543ad620dfa93ad917, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 458078, guid: 1a327d511937c1543ad620dfa93ad917, type: 2}
       propertyPath: m_LocalScale.y
@@ -2882,6 +2886,7 @@ MonoBehaviour:
   sleepTime: 3
   pingTime: 1
   nextLevel: Level 1
+  decoyTriggerColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1307539575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3289,7 +3294,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: fd03f6da8dd4ee943be579b10d70fce0, type: 2}
+  - {fileID: 2100000, guid: b07285df325e70745bc5ebe3b215d557, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
