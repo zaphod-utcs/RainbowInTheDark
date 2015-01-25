@@ -50,6 +50,8 @@ public class ParticlesBursts : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			print ("Space");
+
+			//reset blackhole sounds
 			//partsys.enableEmission = ! partsys.enableEmission;
 			//partsys.Emit(10);
 
@@ -69,8 +71,6 @@ public class ParticlesBursts : MonoBehaviour {
 		//print (ps[0].position);
 		//print (ps[0].velocity);
 		foreach (BlackHole blackhole in blackholes) {
-			bool destHit = false;
-			bool decoyHit = false;
 			//print ("Blackhole: " + blackhole.transform.position);
 			for (int i = 0; i < nParticles; i++) {
 				Vector3 diff = ps [i].position - blackhole.transform.position;
@@ -83,26 +83,23 @@ public class ParticlesBursts : MonoBehaviour {
 					                          new Color(blackhole.colorChange.r, blackhole.colorChange.g, blackhole.colorChange.b), 
 					                          blackhole.colorChange.a);
 					//print ("1 Particle: " + ps [i].position + ", " + ps [i].color);
-					if (blackhole.tag == "Decoy"){
-						decoyHit = true;
+					if (blackhole.tag == "Decoy" && blackhole.triggered == false){
+						_tones[7].Play();
+						blackhole.triggered = true;
+						print ("Decoy played");
 					};
-					if (blackhole.tag == "Destination"){
-						destHit = true;
+					if (blackhole.tag == "Destination" && blackhole.triggered == false){
+						_tones[8].Play();
+						blackhole.triggered = true;
+						print ("Destination played");
 					};
 				}
 			}
-			// play sounds
-			if (decoyHit) {
-				_tones[7].Play();
-			};
 
-			if(destHit){
-				_tones[8].Play();
-			};
 		}
 		particleSystem.SetParticles(ps, nParticles);
 	}
-
+	
 	public void Burst(BurstType type, float power, Vector3 position) {
 		//print ("Burst: " + type + ", " + power + ", " + position);
 		switch (type) {
@@ -121,6 +118,11 @@ public class ParticlesBursts : MonoBehaviour {
 
 		case BurstType.REGULAR:
 				for (int i = 0; i < nParticles; i++) {
+
+				foreach (BlackHole blackhole in blackholes){
+					blackhole.triggered = false;
+				};
+				
 					Vector3 dir;
 					dir = Quaternion.AngleAxis (i * 360.0f / nParticles, new Vector3 (0, 0, 1)) * new Vector3 (0, 1) 
 						* (Random.Range (-speedRange, speedRange) + speed);
