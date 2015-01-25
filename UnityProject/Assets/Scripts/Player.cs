@@ -210,7 +210,6 @@ public class Player : MonoBehaviour {
 		Debug.Log("\t_appliedPingForce: " + _appliedPingForce);
 
 		_bursts.Burst (BurstType.REGULAR, _appliedPingForce, _motor.transform.position);
-		_pinging = true;
 		_appliedPingForce = 0;
 
 		_anim.Play("ping");
