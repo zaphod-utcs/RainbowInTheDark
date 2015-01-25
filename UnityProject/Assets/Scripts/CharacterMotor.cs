@@ -50,6 +50,10 @@ public class CharacterMotor : MonoBehaviour {
 	#endregion
 	
 	#region Extra Functions
-	
+	public void Reset() {
+		inputMoveDirection = Vector3.zero;
+		rigidbody.velocity = Vector3.zero;
+		_direction = Vector3.up;
+	}
 	#endregion
 }
