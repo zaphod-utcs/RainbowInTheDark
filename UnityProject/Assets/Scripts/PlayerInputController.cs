@@ -29,7 +29,7 @@ public class PlayerInputController : MonoBehaviour {
 			if (Input.GetButtonUp("Ping")) {
 				_player.Ping(_pingTimer);
 				_pingTimer = 0;
-				_tones[Mathf.FloorToInt((_player.energy / _player.maxEnergy) * 7.9)].Play();
+				_tones[Mathf.FloorToInt((_player.energy / _player.maxEnergy) * 7.9f)].Play();
 			}
 		}
 		else {
