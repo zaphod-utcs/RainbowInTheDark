@@ -685,13 +685,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energy: 100
-  maxEnergy: 100
+  maxEnergy: 1000
   decayRate: 20
   regenRate: 0
   pingForce: 10
   rotateSpeed: 25
   sleepTime: 3
-  pingTime: .300000012
+  pingTime: .600000024
   wonTime: 3
   nextLevel: Level 2
   decoyTriggerColor: {r: 1, g: 0, b: 0, a: 1}
