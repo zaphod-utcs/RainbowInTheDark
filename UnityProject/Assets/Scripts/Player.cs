@@ -30,7 +30,6 @@ public class Player : MonoBehaviour {
 	public float sleepTime = 1.5f;
 	public float pingTime = 0.6f;
 	public float wonTime = 3f;
-	public float pingTime = 0.3f;
 	public string nextLevel = "Level 1";
 
 	public Color decoyTriggerColor = Color.red;
