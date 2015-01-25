@@ -111,7 +111,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 443102, guid: 938ebee79b0e8d04c8dfcc3dd41d3eeb, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11443096, guid: 938ebee79b0e8d04c8dfcc3dd41d3eeb, type: 2}
       propertyPath: nextLevel
@@ -1830,12 +1830,12 @@ MonoBehaviour:
   decayRate: 20
   regenRate: 0
   pingForce: 10
-  pingHoldTime: 1
   rotateSpeed: 25
   sleepTime: 3
-  pingTime: 1
+  pingTime: .300000012
   nextLevel: Level 2
   decoyTriggerColor: {r: 1, g: 0, b: 0, a: 1}
+  resetHoldTime: 1
 --- !u!114 &1537953816
 MonoBehaviour:
   m_ObjectHideFlags: 0

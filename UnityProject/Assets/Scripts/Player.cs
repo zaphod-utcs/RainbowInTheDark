@@ -24,14 +24,15 @@ public class Player : MonoBehaviour {
 	public float decayRate = 5f;
 	public float regenRate = 2f;
 	public float pingForce = 10f;
-	public float pingHoldTime = 1f;
 
 	public float rotateSpeed = 25f;
 	public float sleepTime = 3f;
-	public float pingTime = 1f;
+	public float pingTime = 0.3f;
 	public string nextLevel = "Level 1";
 
 	public Color decoyTriggerColor = Color.red;
+
+	public float resetHoldTime = 1f;
 
 	private State _state;	
 	private float _appliedPingForce;
@@ -64,8 +65,8 @@ public class Player : MonoBehaviour {
 	}	
 	void Start () {
 		_initPos = _transform.position;
-		if (pingHoldTime == 0)
-			pingHoldTime = 1f;
+		//if (pingTime == 0)
+		//	pingTime = 1f;
 
 		Reset();
 	}	
@@ -142,7 +143,7 @@ public class Player : MonoBehaviour {
 	}
 	private void UpdateWaiting() {
 		_sleepTimer += Time.deltaTime;
-		if (_sleepTimer >= 1f) {
+		if (_sleepTimer >= resetHoldTime) {
 			_sleepTimer = 0;
 			_state = State.ready;
 		}
@@ -216,7 +217,7 @@ public class Player : MonoBehaviour {
 		if (_state == State.tired) return;
 
 		Debug.Log("PlayerInputController::Ping()");
-		_appliedPingForce = elapsed/pingHoldTime;
+		_appliedPingForce = elapsed/pingTime;
 		Debug.Log("\t_appliedPingForce: " + _appliedPingForce);
 
 		_bursts.Burst (BurstType.REGULAR, _appliedPingForce, _motor.transform.position);

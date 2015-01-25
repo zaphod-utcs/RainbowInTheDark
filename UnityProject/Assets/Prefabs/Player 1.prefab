@@ -157,11 +157,12 @@ MonoBehaviour:
   decayRate: 20
   regenRate: 0
   pingForce: 10
-  pingHoldTime: 1
   rotateSpeed: 25
   sleepTime: 3
-  pingTime: 1
+  pingTime: .300000012
   nextLevel: Level 1
+  decoyTriggerColor: {r: 1, g: 0, b: 0, a: 1}
+  resetHoldTime: 1
 --- !u!114 &11443098
 MonoBehaviour:
   m_ObjectHideFlags: 1
