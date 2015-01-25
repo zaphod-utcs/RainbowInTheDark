@@ -28,12 +28,8 @@ public class Player : MonoBehaviour {
 
 	public float rotateSpeed = 25f;
 	public float sleepTime = 3f;
-<<<<<<< HEAD
 	public float pingTime = 0.6f;
-=======
 	public float wonTime = 3f;
-	public float pingTime = 0.3f;
->>>>>>> FETCH_HEAD
 	public string nextLevel = "Level 1";
 
 	public Color decoyTriggerColor = Color.red;
