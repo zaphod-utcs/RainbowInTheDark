@@ -84,12 +84,12 @@ public class ParticlesBursts : MonoBehaviour {
 					                          blackhole.colorChange.a);
 					//print ("1 Particle: " + ps [i].position + ", " + ps [i].color);
 					if (blackhole.tag == "Decoy" && blackhole.triggered == false){
-						_tones[7].Play();
+						_tones[7].PlayDelayed(0.2f);
 						blackhole.triggered = true;
 						print ("Decoy played");
 					};
 					if (blackhole.tag == "Destination" && blackhole.triggered == false){
-						_tones[8].Play();
+						_tones[8].PlayDelayed(0.4f);
 						blackhole.triggered = true;
 						print ("Destination played");
 					};
