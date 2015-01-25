@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
 	private float _appliedPingForce;
 	private CharacterMotor _motor;
 	private Vector3 _initPos;
-	private Rect _rect = new Rect(10, 10, 100, 24);
+	private Rect _rect;
 	private Transform _transform;
 	private float _sleepTimer;
 	private float _pingTimer;
@@ -61,6 +61,7 @@ public class Player : MonoBehaviour {
 		Debug.Log ("Player::Awake() _anim: " + _anim);
 	}	
 	void Start () {
+		_rect = new Rect(Screen.width/2, 10, 100, 24);
 		_initPos = _transform.position;
 		if (pingHoldTime == 0)
 			pingHoldTime = 1f;
@@ -116,7 +117,6 @@ public class Player : MonoBehaviour {
 		GUI.Label(_rect, sOut);
 
 	}
-
 	#endregion
 	
 	
