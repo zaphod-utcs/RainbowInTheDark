@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour {
 	#region Fields
 	public GameObject bgStart;
 	public GameObject bgCtrl;
+	public GUISkin myGuiSkin;
 
 	const int buttonWidth = 355;
 	const int buttonHeight = 75;
@@ -25,6 +26,7 @@ public class MainMenu : MonoBehaviour {
 	void Start() {
 		//guiTextureStart = bgStart.GetComponent<guiTextureStart>();
 		//guiTextureControls = bgCtrl.GetComponent<guiTextureControls>();
+
 		startButtonRect = new Rect(0,startY,buttonWidth,buttonHeight);
 		controlsButtonRect = new Rect(780,startY,buttonWidth,buttonHeight);
 		backButtonRect = new Rect(0,startY,buttonWidth,buttonHeight);
@@ -41,7 +43,9 @@ public class MainMenu : MonoBehaviour {
 		                   Screen.height*2/3 - buttonHeight/2,
 		                   buttonWidth,
 		                   buttonHeight), "---");
-		
+
+		GUI.skin = myGuiSkin;
+
 		if (isStartMenu) {
 			DisplayStartMenu();
 		}
@@ -50,6 +54,9 @@ public class MainMenu : MonoBehaviour {
 		}
 	}
 	void DisplayStartMenu() {
+		Rect r = new Rect(50, 100, 100, 50);
+		GUI.Button(r,"","StartButton");
+
 		if(GUI.Button(new Rect (0,0,100,50),"Start")) {
 			Debug.Log ("Start clicked");
 			Application.LoadLevel("Level 1");

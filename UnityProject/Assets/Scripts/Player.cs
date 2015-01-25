@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
 	public float pingForce = 10f;
 
 	public float rotateSpeed = 25f;
-	public float sleepTime = 3f;
+	public float sleepTime = 1.5f;
 	public float pingTime = 0.3f;
 	public string nextLevel = "Level 1";
 
@@ -46,6 +46,7 @@ public class Player : MonoBehaviour {
 	private bool _canRotate;
 	private Animator _anim;
 	private ParticlesBursts _bursts;
+	private EnergyBar _energyBar;
 	#endregion
 	
 	
@@ -55,16 +56,17 @@ public class Player : MonoBehaviour {
 	}
 	#endregion
 	#region Unity Functions
-	void Awake() {
+	void Awake() { 
 		_bursts = GetComponent<ParticlesBursts> ();
 		_motor = GetComponent<CharacterMotor>();
+		_energyBar = GetComponent<EnergyBar>();
 		_transform = transform;
 		//_anim = GetComponentInChildren<Animation>();
 		_anim = GetComponentInChildren<Animator>();
 		Debug.Log ("Player::Awake() _anim: " + _anim);
 	}	
 	void Start () {
-		_rect = new Rect(Screen.width/2, 10, 100, 24);
+		_rect = new Rect(Screen.width/2, 30, 100, 24);
 		_initPos = _transform.position;
 		//if (pingTime == 0)
 		//	pingTime = 1f;
@@ -118,6 +120,7 @@ public class Player : MonoBehaviour {
 			}
 		}
 	}
+	/*
 	void OnGUI() {
 
 		string sOut = (_state == State.resting) ? _sleepMsg : 
@@ -126,6 +129,7 @@ public class Player : MonoBehaviour {
 		GUI.Label(_rect, sOut);
 
 	}
+	*/
 	#endregion
 	
 	
@@ -134,12 +138,13 @@ public class Player : MonoBehaviour {
 		Debug.Log ("Player::Reset()");
 		_transform.position = _initPos;
 		_transform.rotation = Quaternion.Euler(Vector3.up);
-		energy = maxEnergy;
 		_state = State.wait;
 		_canRotate = true;
 		_motor.Reset ();
 		_anim.Play("idle");
 		Debug.Log ("reset rotation: " + _transform.rotation);
+		energy = maxEnergy;
+		_energyBar.SetProgress(energy,maxEnergy);
 	}
 	private void UpdateWaiting() {
 		_sleepTimer += Time.deltaTime;
@@ -150,6 +155,8 @@ public class Player : MonoBehaviour {
 	}
 	private void UpdateResting() {
 		_sleepTimer += Time.deltaTime;
+		_energyBar.SetProgress(_sleepTimer,sleepTime);
+
 		_sleepMsg = String.Format("Retry in {0}s", sleepTime - Mathf.Floor (_sleepTimer));
 		if (_sleepTimer >= sleepTime) {
 			_sleepTimer = 0;
@@ -171,7 +178,7 @@ public class Player : MonoBehaviour {
 			//correctly doesn't fire after reset()
 			//Debug.Log ("Player::UpdateReady() _motor.IsMoving");
 			energy = Mathf.Clamp (energy - decayRate * Time.deltaTime, 0, maxEnergy);
-
+			_energyBar.SetProgress(energy,maxEnergy);
 			_anim.Play ("move");
 		}
 		else {
