@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgStart: {fileID: 957335586}
   bgCtrl: {fileID: 1122647878}
+  myGuiSkin: {fileID: 11400000, guid: 33d2f1eb6eab35b4998960c2fc86b1bb, type: 2}
 --- !u!4 &171381847
 Transform:
   m_ObjectHideFlags: 0
