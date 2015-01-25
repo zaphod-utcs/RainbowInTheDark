@@ -31,6 +31,8 @@ public class Player : MonoBehaviour {
 	public float pingTime = 1f;
 	public string nextLevel = "Level 1";
 
+	public Color decoyTriggerColor = Color.red;
+
 	private State _state;	
 	private float _appliedPingForce;
 	private CharacterMotor _motor;
@@ -106,6 +108,12 @@ public class Player : MonoBehaviour {
 			// WIP
 			// Do animation
 			Application.LoadLevel (nextLevel);
+		} else if (other.transform.CompareTag("Decoy")) {
+			BlackHole b = other.gameObject.GetComponent<BlackHole> ();
+			if (b.gravity > 0) {
+				b.gravity = -b.gravity;
+				b.colorChange = decoyTriggerColor;
+			}
 		}
 	}
 	void OnGUI() {
@@ -190,6 +198,8 @@ public class Player : MonoBehaviour {
 	private void UpdateTired() {
 		Debug.Log ("Player::UpdateTired()");
 		_state = State.resting;
+
+		_bursts.Burst (BurstType.DEATH, 1, _motor.transform.position);
 
 		//change animation to sleeping
 		_anim.Play("sleep");

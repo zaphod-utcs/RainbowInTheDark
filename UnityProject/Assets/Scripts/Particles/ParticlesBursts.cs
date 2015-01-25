@@ -2,7 +2,8 @@
 using System.Collections;
 
 public enum BurstType {
-	REGULAR
+	REGULAR,
+	DEATH
 }
 
 public class ParticlesBursts : MonoBehaviour {
@@ -84,10 +85,20 @@ public class ParticlesBursts : MonoBehaviour {
 	public void Burst(BurstType type, float power, Vector3 position) {
 		//print ("Burst: " + type + ", " + power + ", " + position);
 		switch (type) {
-			//	dir = Quaternion.AngleAxis ((float)Random.Range (0f, 360f), new Vector3 (0, 0, 1)) * new Vector3 (0, 1) 
-			//      * (Random.Range (-speedRange, speedRange) + speed);
+		case BurstType.DEATH:
+			for (int i = 0; i < nParticles * 2; i++) {
+				Vector3 dir;
+				dir = Quaternion.AngleAxis ((float)Random.Range (0f, 360f), new Vector3 (0, 0, 1)) * new Vector3 (0, 1) 
+				      * (Random.Range (-speedRange, speedRange) + speed);
 
-			case BurstType.REGULAR:
+				//print ("Particle: " + dir + position);
+
+				particleSystem.Emit (position, dir, particleSize, lifetime, color);
+			}
+			break;
+
+
+		case BurstType.REGULAR:
 				for (int i = 0; i < nParticles; i++) {
 					Vector3 dir;
 					dir = Quaternion.AngleAxis (i * 360.0f / nParticles, new Vector3 (0, 0, 1)) * new Vector3 (0, 1) 
