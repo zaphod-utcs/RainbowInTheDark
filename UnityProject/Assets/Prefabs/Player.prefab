@@ -202,9 +202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxParticles: 100
-  speed: 10
+  speed: 7
   speedRange: 0
-  nParticles: 20
+  nParticles: 40
   particleSize: .5
   lifetime: 1
   color: {r: 0, g: 0, b: 1, a: 1}
@@ -226,6 +226,7 @@ MonoBehaviour:
   pingForce: 10
   pingHoldTime: 1
   rotateSpeed: 250
+  nextLevel: Level 1
 --- !u!114 &11435738
 MonoBehaviour:
   m_ObjectHideFlags: 1

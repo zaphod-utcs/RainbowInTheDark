@@ -19,6 +19,7 @@ public class Player : MonoBehaviour {
 	public float pingForce = 10f;
 	public float pingHoldTime = 1f;
 	public float rotateSpeed = 250f;
+	public string nextLevel = "Level 1";
 
 
 	private bool _pinging;	
@@ -59,7 +60,10 @@ public class Player : MonoBehaviour {
 	void OnTriggerEnter (Collider other) {
 		if (other.transform.CompareTag("Destination")) {
 			Debug.Log ("Player::OnTriggerEnter() Dest");
-			Reset ();
+			//Reset ();
+			// WIP
+			// Do animation
+			Application.LoadLevel (nextLevel);
 		}
 	}
 	void OnGUI() {
@@ -85,12 +89,9 @@ public class Player : MonoBehaviour {
 		_appliedPingForce = elapsed/pingHoldTime;
 		Debug.Log("\t_appliedPingForce: " + _appliedPingForce);
 
-		//WIP: INVOKE PARTICLE EMITTER
 		_bursts.Burst (BurstType.REGULAR, _appliedPingForce, _motor.transform.position);
 		_pinging = true;
 		_appliedPingForce = 0;
-
-		//WIP: trigger animation
 	}
 	void PingExtra() {
 		if (rigidbody.velocity == Vector3.zero) {
