@@ -16,7 +16,8 @@ public class Player : MonoBehaviour {
 		resting,
 		ready,
 		tired,
-		pinging
+		pinging,
+		won
 	}
 
 	public float energy = 100f;
@@ -27,7 +28,12 @@ public class Player : MonoBehaviour {
 
 	public float rotateSpeed = 25f;
 	public float sleepTime = 3f;
+<<<<<<< HEAD
 	public float pingTime = 0.6f;
+=======
+	public float wonTime = 3f;
+	public float pingTime = 0.3f;
+>>>>>>> FETCH_HEAD
 	public string nextLevel = "Level 1";
 
 	public Color decoyTriggerColor = Color.red;
@@ -89,6 +95,9 @@ public class Player : MonoBehaviour {
 		case State.pinging:
 			UpdatePinging();
 			break;
+				case State.won:
+						UpdateWon ();
+						break;
 		}
 	}
 	void OnCollisionEnter(Collision collision) {
@@ -109,7 +118,9 @@ public class Player : MonoBehaviour {
 			//Reset ();
 			// WIP
 			// Do animation
-			Application.LoadLevel (nextLevel);
+			_anim.Play("win");
+						_pingTimer = 0;
+						_state = State.won;
 		} else if (other.transform.CompareTag("Decoy")) {
 			BlackHole b = other.gameObject.GetComponent<BlackHole> ();
 			if (b.gravity > 0) {
@@ -204,6 +215,14 @@ public class Player : MonoBehaviour {
 
 		//change animation to sleeping
 		_anim.Play("sleep");
+	}
+
+
+	private void UpdateWon() {
+		_pingTimer += Time.deltaTime;
+				if (_pingTimer > wonTime) {
+						Application.LoadLevel (nextLevel);
+				}
 	}
 	private void UpdatePinging() {
 		_pingTimer += Time.deltaTime;
