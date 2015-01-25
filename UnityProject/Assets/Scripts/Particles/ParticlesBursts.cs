@@ -7,6 +7,9 @@ public enum BurstType {
 }
 
 public class ParticlesBursts : MonoBehaviour {
+
+	private AudioSource[] _tones;
+
 	ParticleSystem particleSystem = null;
 	BlackHole[] blackholes;
 
@@ -29,6 +32,8 @@ public class ParticlesBursts : MonoBehaviour {
 		foreach (BlackHole blackhole in blackholes) {
 			print ("Blackhole: " + blackhole.gameObject.name);
 		}
+
+		_tones = GetComponents<AudioSource> ();
 	}
 
 	public int maxParticles = 100;
@@ -45,6 +50,8 @@ public class ParticlesBursts : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			print ("Space");
+
+			//reset blackhole sounds
 			//partsys.enableEmission = ! partsys.enableEmission;
 			//partsys.Emit(10);
 
@@ -76,12 +83,23 @@ public class ParticlesBursts : MonoBehaviour {
 					                          new Color(blackhole.colorChange.r, blackhole.colorChange.g, blackhole.colorChange.b), 
 					                          blackhole.colorChange.a);
 					//print ("1 Particle: " + ps [i].position + ", " + ps [i].color);
+					if (blackhole.tag == "Decoy" && blackhole.triggered == false){
+						_tones[7].PlayDelayed(0.2f);
+						blackhole.triggered = true;
+						print ("Decoy played");
+					};
+					if (blackhole.tag == "Destination" && blackhole.triggered == false){
+						_tones[8].PlayDelayed(0.4f);
+						blackhole.triggered = true;
+						print ("Destination played");
+					};
 				}
 			}
+
 		}
 		particleSystem.SetParticles(ps, nParticles);
 	}
-
+	
 	public void Burst(BurstType type, float power, Vector3 position) {
 		//print ("Burst: " + type + ", " + power + ", " + position);
 		switch (type) {
@@ -100,6 +118,11 @@ public class ParticlesBursts : MonoBehaviour {
 
 		case BurstType.REGULAR:
 				for (int i = 0; i < nParticles; i++) {
+
+				foreach (BlackHole blackhole in blackholes){
+					blackhole.triggered = false;
+				};
+				
 					Vector3 dir;
 					dir = Quaternion.AngleAxis (i * 360.0f / nParticles, new Vector3 (0, 0, 1)) * new Vector3 (0, 1) 
 						* (Random.Range (-speedRange, speedRange) + speed);
