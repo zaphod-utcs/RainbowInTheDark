@@ -2444,8 +2444,9 @@ MonoBehaviour:
   pingForce: 10
   rotateSpeed: 25
   sleepTime: 3
+  wonTime: 3
   pingTime: .300000012
-  nextLevel: Level 4
+  nextLevel: Level 5
   decoyTriggerColor: {r: 1, g: 0, b: 0, a: 1}
   resetHoldTime: 1
 --- !u!114 &1261605540
@@ -3026,7 +3027,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11443096, guid: 938ebee79b0e8d04c8dfcc3dd41d3eeb, type: 2}
       propertyPath: nextLevel
-      value: Level 4
+      value: Level 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 938ebee79b0e8d04c8dfcc3dd41d3eeb, type: 2}
