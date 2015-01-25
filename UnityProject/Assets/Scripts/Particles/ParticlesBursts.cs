@@ -7,6 +7,9 @@ public enum BurstType {
 }
 
 public class ParticlesBursts : MonoBehaviour {
+
+	private AudioSource[] _tones;
+
 	ParticleSystem particleSystem = null;
 	BlackHole[] blackholes;
 
@@ -29,6 +32,8 @@ public class ParticlesBursts : MonoBehaviour {
 		foreach (BlackHole blackhole in blackholes) {
 			print ("Blackhole: " + blackhole.gameObject.name);
 		}
+
+		_tones = GetComponents<AudioSource> ();
 	}
 
 	public int maxParticles = 100;
@@ -64,6 +69,8 @@ public class ParticlesBursts : MonoBehaviour {
 		//print (ps[0].position);
 		//print (ps[0].velocity);
 		foreach (BlackHole blackhole in blackholes) {
+			bool destHit = false;
+			bool decoyHit = false;
 			//print ("Blackhole: " + blackhole.transform.position);
 			for (int i = 0; i < nParticles; i++) {
 				Vector3 diff = ps [i].position - blackhole.transform.position;
@@ -76,8 +83,22 @@ public class ParticlesBursts : MonoBehaviour {
 					                          new Color(blackhole.colorChange.r, blackhole.colorChange.g, blackhole.colorChange.b), 
 					                          blackhole.colorChange.a);
 					//print ("1 Particle: " + ps [i].position + ", " + ps [i].color);
+					if (blackhole.tag == "Decoy"){
+						decoyHit = true;
+					};
+					if (blackhole.tag == "Destination"){
+						destHit = true;
+					};
 				}
 			}
+			// play sounds
+			if (decoyHit) {
+				_tones[7].Play();
+			};
+
+			if(destHit){
+				_tones[8].Play();
+			};
 		}
 		particleSystem.SetParticles(ps, nParticles);
 	}
