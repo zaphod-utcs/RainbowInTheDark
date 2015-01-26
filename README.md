@@ -247,15 +247,15 @@ When the player enters the appropriate wormhole,the Narwhal will change animatio
 
 
 5) Team Members
-Zach Koch ezekeal@gmail.com	4156921399 - Programmer 
+Zach Koch ezekeal@gmail.com	- Programmer 
 
-Arthur Peters	arthur.peters@gmail.com	7188640790 - Programmer/ Designer / Sound
+Arthur Peters	amp@singingwizard.org	- Programmer/ Designer / Sound
 
-Jason Brown	jbnetaccounts@gmail.com	914-837-1889 - Programmer/ Designer
+Jason Brown	jbnetaccounts@gmail.com - Programmer/ Designer
  
-Alyssa Peters	alyssa.r.peters@gmail.com	5128887532 - Programmer/ Illustrator / Designer
+Alyssa Peters	alyssa.r.peters@gmail.com - Programmer/ Illustrator / Designer
 
-Michael Blackard oreinai4@gmail.com	512-574-9514 - Producer/ Designer 
+Michael Blackard oreinai4@gmail.com - Producer/ Designer 
 
 
 
