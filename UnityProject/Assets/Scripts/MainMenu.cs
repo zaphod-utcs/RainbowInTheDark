@@ -14,45 +14,39 @@ public class MainMenu : MonoBehaviour {
 	const int startY = 780;
 	const int backX = 795;
 	const int backY = 867;
-	Rect buttonRect;
-	Rect startButtonRect;
-	Rect controlsButtonRect;
-	Rect backButtonRect;
 	bool isStartMenu = true;
 	GUITexture guiTextureStart;
 	GUITexture guiTextureControls;
-	Rect rect1, rect2;
+	Rect rectStart, rectControls, rectBack;
+	Vector2 relPosBtn1;
+	Vector2 relPosBtn2;
+	Vector2 relPosBtn3;
+	Vector2 scaleBtn;
+	Vector2 scaleBtn3;
 	#endregion
 
 	void Start() {
-		//guiTextureStart = bgStart.GetComponent<guiTextureStart>();
-		//guiTextureControls = bgCtrl.GetComponent<guiTextureControls>();
 
-		rect1 = new Rect(Screen.width/2 - buttonWidth/2, 0, buttonWidth/2, buttonHeight);
-		rect2 = new Rect(0,0,buttonWidth, buttonHeight);
-		
-		startButtonRect = new Rect(0,startY,buttonWidth,buttonHeight);
-		controlsButtonRect = new Rect(780,startY,buttonWidth,buttonHeight);
-		backButtonRect = new Rect(0,startY,buttonWidth,buttonHeight);
-		Debug.Log("MainMenu::Start() startButtonRect: " + startButtonRect);
-		
-		
+		relPosBtn1.x = 778f/1920f; //0.4052
+		relPosBtn1.y = 736f/1200f; //0.6133
+		relPosBtn2.x = relPosBtn1.x;
+		relPosBtn2.y = 850f/1200f;
+		scaleBtn.x = 362f/1920f * 1.1f;
+		scaleBtn.y = 76f/1200f;
+
+		relPosBtn3.x = 792f/1920f; 
+		relPosBtn3.y = 864f/1200f; 
+		scaleBtn3.x = 364f/1920f;
+		scaleBtn3.y = 78f/1200f;
+
+		//Debug.Log("MainMenu::Start() startButtonRect: " + startButtonRect);
+		//Debug.Log ("Screen.width = " + Screen.width);
+		//Debug.Log ("Screen.height = " + Screen.height);
+		//Debug.Log ("Screen.width * ratioX = " + Screen.width * ratioX);
+
 	}
 	void OnGUI() {
 
-		//GUI.Box (new Rect (0,0,100,50), "Top-left");
-		//GUI.Box (new Rect (Screen.width - 100,0,100,50), "Top-right");
-		//GUI.Box (new Rect (0,Screen.height - 50,100,50), "Bottom-left");
-		//GUI.Box (new Rect (Screen.width - 100,Screen.height - 50,100,50), "Bottom-right");
-		//
-		//GUI.Box (new Rect (Screen.width - buttonWidth/2,
-		//                   Screen.height*2/3 - buttonHeight/2,
-		//                   buttonWidth,
-		//                   buttonHeight), "---");
-        //
-		
-		//GUI.Box (new Rect (244,280,144,32), "START");
-		//GUI.Box (new Rect (244,324,144,32), "CONTROLS");
 		GUI.skin = myGuiSkin;
 
 		if (isStartMenu) {
@@ -63,29 +57,25 @@ public class MainMenu : MonoBehaviour {
 		}
 	}
 	void DisplayStartMenu() {
-		
-		//rect1 = new Rect(0, 280, buttonWidth/4, buttonHeight/4);
-		//GUI.BeginGroup(rect1);
-		//GUI.Button(rect2,"","StartButton");
-		//GUI.EndGroup();
-		
-		//rect1.y = buttonHeight;
-		//GUI.Button(rect1,"","ControlsButton");
-		//GUI.EndGroup();
-		
-		if(GUI.Button(new Rect (244,280,144,32),"","StartButton")) {
-			Debug.Log ("Start clicked");
+
+		rectStart = new Rect(Screen.width * relPosBtn1.x, Screen.height * relPosBtn1.y, Screen.width*scaleBtn.x,Screen.width*scaleBtn.y);
+		rectControls = new Rect(Screen.width * relPosBtn2.x, Screen.height * relPosBtn2.y, Screen.width*scaleBtn.x,Screen.width*scaleBtn.y);
+
+		if (GUI.Button (rectStart,"","StartButton")){
+			//Debug.Log ("Start clicked");
 			Application.LoadLevel("Level 1");
 		}
 		
-		if(GUI.Button(new Rect(244,324,144,32),"", "ControlsButton")) {
-			Debug.Log ("Controls clicked");
+		if(GUI.Button(rectControls,"", "ControlsButton")) {
+			//Debug.Log ("Controls clicked");
 			ToggleDisplays();
 		}
 	}
 	void DisplayControlsMenu(){
-		if(GUI.Button(new Rect (250,332,144,32),"","BackButton")) {
-			Debug.Log ("Back clicked");
+		rectBack = new Rect(Screen.width * relPosBtn3.x, Screen.height * relPosBtn3.y, Screen.width*scaleBtn3.x,Screen.width*scaleBtn3.y);
+
+		if(GUI.Button(rectBack,"","BackButton")) {
+			//Debug.Log ("Back clicked");
 			ToggleDisplays();
 		}
 	}
@@ -93,7 +83,5 @@ public class MainMenu : MonoBehaviour {
 		isStartMenu = !isStartMenu;
 		bgStart.SetActive(isStartMenu);
 		bgCtrl.SetActive(!isStartMenu);
-		//bgStart.enabled = !bgStart.enabled;
-		//bgCtrl.enabled = !bgCtrl.enabled;
 	}
 }
