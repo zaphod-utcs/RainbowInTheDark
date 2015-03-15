@@ -246,11 +246,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11443096, guid: 938ebee79b0e8d04c8dfcc3dd41d3eeb, type: 2}
       propertyPath: maxEnergy
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 11443096, guid: 938ebee79b0e8d04c8dfcc3dd41d3eeb, type: 2}
       propertyPath: nextLevel
-      value: Level 1
+      value: MainMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 938ebee79b0e8d04c8dfcc3dd41d3eeb, type: 2}
@@ -3138,7 +3138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energy: 100
-  maxEnergy: 100
+  maxEnergy: 50
   decayRate: 20
   regenRate: 0
   pingForce: 10
@@ -3146,7 +3146,7 @@ MonoBehaviour:
   sleepTime: 3
   pingTime: .600000024
   wonTime: 3
-  nextLevel: Level 1
+  nextLevel: MainMenu
   decoyTriggerColor: {r: 1, g: 0, b: 0, a: 1}
   resetHoldTime: 1
 --- !u!114 &1234095362

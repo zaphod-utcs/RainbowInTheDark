@@ -326,7 +326,7 @@ Transform:
   m_PrefabInternal: {fileID: 448165697}
   m_GameObject: {fileID: 248315011}
   m_LocalRotation: {x: 0, y: 0, z: -.875164866, w: .483824939}
-  m_LocalPosition: {x: 2.04999995, y: 8.81000042, z: 1}
+  m_LocalPosition: {x: 2.20000005, y: 9.05000019, z: 1}
   m_LocalScale: {x: .494718671, y: 2.54179335, z: 2}
   m_Children: []
   m_Father: {fileID: 1360567336}
@@ -522,11 +522,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 458078, guid: 1a327d511937c1543ad620dfa93ad917, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.04999995
+      value: 2.20000005
       objectReference: {fileID: 0}
     - target: {fileID: 458078, guid: 1a327d511937c1543ad620dfa93ad917, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.81000042
+      value: 9.05000019
       objectReference: {fileID: 0}
     - target: {fileID: 458078, guid: 1a327d511937c1543ad620dfa93ad917, type: 2}
       propertyPath: m_LocalPosition.z
@@ -609,6 +609,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: ed22d338bf6cd7a4eb043adad4b8ba35,
         type: 3}
+    - target: {fileID: 21205270, guid: 2019f7eec6dce014b93be5876ab9051e, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2019f7eec6dce014b93be5876ab9051e, type: 2}
   m_RootGameObject: {fileID: 1893952724}
@@ -2371,7 +2375,7 @@ SpriteRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 453561921}
   m_GameObject: {fileID: 684009799}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_LightmapIndex: 255
@@ -2559,7 +2563,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11443096, guid: 938ebee79b0e8d04c8dfcc3dd41d3eeb, type: 2}
       propertyPath: nextLevel
-      value: Decoys
+      value: Level 6
       objectReference: {fileID: 0}
     - target: {fileID: 5443102, guid: 938ebee79b0e8d04c8dfcc3dd41d3eeb, type: 2}
       propertyPath: m_UseGravity
@@ -2567,7 +2571,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11443096, guid: 938ebee79b0e8d04c8dfcc3dd41d3eeb, type: 2}
       propertyPath: maxEnergy
-      value: 105
+      value: 125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 938ebee79b0e8d04c8dfcc3dd41d3eeb, type: 2}
@@ -3358,7 +3362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energy: 100
-  maxEnergy: 105
+  maxEnergy: 125
   decayRate: 20
   regenRate: 0
   pingForce: 10
@@ -3366,7 +3370,7 @@ MonoBehaviour:
   sleepTime: 3
   pingTime: .600000024
   wonTime: 3
-  nextLevel: Decoys
+  nextLevel: Level 6
   decoyTriggerColor: {r: 1, g: 0, b: 0, a: 1}
   resetHoldTime: 1
 --- !u!114 &1457954633

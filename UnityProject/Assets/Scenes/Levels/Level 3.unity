@@ -2443,7 +2443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energy: 100
-  maxEnergy: 70
+  maxEnergy: 100
   decayRate: 20
   regenRate: 0
   pingForce: 10
@@ -2451,7 +2451,7 @@ MonoBehaviour:
   sleepTime: 3
   pingTime: .600000024
   wonTime: 3
-  nextLevel: Level 5
+  nextLevel: Level 4
   decoyTriggerColor: {r: 1, g: 0, b: 0, a: 1}
   resetHoldTime: 1
 --- !u!114 &1261605540
@@ -3164,11 +3164,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11443096, guid: 938ebee79b0e8d04c8dfcc3dd41d3eeb, type: 2}
       propertyPath: nextLevel
-      value: Level 5
+      value: Level 4
       objectReference: {fileID: 0}
     - target: {fileID: 11443096, guid: 938ebee79b0e8d04c8dfcc3dd41d3eeb, type: 2}
       propertyPath: maxEnergy
-      value: 70
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 938ebee79b0e8d04c8dfcc3dd41d3eeb, type: 2}
