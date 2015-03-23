@@ -5,6 +5,8 @@ Design doc - idea 3 -chosen
 "Rainbows in the Dark" v0.1
 Theme: what do we do now?
 
+Release is available at https://github.com/zaphod-utcs/RainbowInTheDark/releases/tag/Final
+
 Table of contents:
 
 1) General Information
